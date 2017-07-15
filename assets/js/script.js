@@ -224,7 +224,7 @@ $(function () {
 		// Each products has a data-index attribute.
 		// On click change the url hash to open up a preview for this product only.
 		// Remember: every hashchange triggers the render function.
-		list.find('li').on('click', function (e) {
+		list.find('button').on('click', function (e) {
 			e.preventDefault();
 
 			var productIndex = $(this).data('index');
@@ -406,3 +406,43 @@ $(function () {
 	}
 
 });
+
+function setJSONCookie(arr, cname) {
+    var json_str = JSON.stringify(arr);
+    createCookie(cname, json_str);
+}
+
+function getJSONCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = getCookie(cname);
+    var arr = JSON.parse(decodedCookie);
+    return arr;
+}
+
+var createCookie = function(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}

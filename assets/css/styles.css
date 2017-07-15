@@ -155,6 +155,7 @@ header h2.tzine a{
 }
 
 
+
 /*	Products List	*/
 
 .all-products h3{
@@ -182,7 +183,7 @@ header h2.tzine a{
 .products-list > li{
 	box-sizing:border-box;
 	display: inline-block;
-	cursor: pointer;
+	/*cursor: pointer;*/
 	position: relative;
 	transition: 0.2s;
 
@@ -278,6 +279,19 @@ header h2.tzine a{
 	height: 32px;
 }
 
+.products-list button_detailed{
+	border-radius: 2px;
+	background-color:  #87bae1;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+	border: 0;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 13px;
+	cursor: pointer;
+	width: 95px;
+	height: 32px;
+}
+
 .products-list .product-price{
 	float: right;
 
@@ -290,7 +304,7 @@ header h2.tzine a{
 }
 
 .products-list .highlight{
-	position: absolute;
+	/*position: absolute;*/
 	top:0;
 	left:0;
 	width:100%;

@@ -74,9 +74,21 @@
 								<li><span>OS: </span>{{specs.os}}</li>
 								<li><span>Camera: </span>{{specs.camera}} Mpx</li>
 							</ul>
-							<button>Buy Now!</button>
-							<p class="product-price">{{price}}$</p>
+							<B>Amount:</B>
+							<SELECT NAME="amount">
+							<OPTION SELECTED> 1
+							<OPTION> 2
+							<OPTION> 3
+							<OPTION> 4
+							<OPTION> 5
+							<OPTION> 6
+							<OPTION> 7
+							</SELECT>
+							<p class="product-price">{{price}}$</p></br>
 							<div class="highlight"></div>
+							<button data-index="{{id}}">Add to Basket</button>
+							<button data-index="{{id}}">Detailed</button>
+							
 						</li>
 					{{/each}}
 				</script> 
