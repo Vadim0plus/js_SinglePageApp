@@ -93,6 +93,23 @@ $(function () {
 
 	});
 
+	var orderProductPage = $('.order-product');
+
+	orderProductPage.on('click', function (e) {
+
+		if (orderProductPage.hasClass('visible')) {
+
+			var clicked = $(e.target);
+
+			// If the close button or the background are clicked go to the previous page.
+			if (clicked.hasClass('order-close') || clicked.hasClass('order-overlay')) {
+				// Change the url hash with the last used filters.
+				createQueryHash(filters);
+			}
+
+		}
+
+	});
 
 	// These are called on page load
 
@@ -147,6 +164,15 @@ $(function () {
 				var index = url.split('#product/')[1].trim();
 
 				renderSingleProductPage(index, products);
+			},
+			
+			// The "Homepage".
+			'#order': function() {
+
+				// Get the index of which product we want to buy and call the appropriate function.
+				var index = url.split('#order/')[1].trim();
+
+				renderProductOrderPage(index, products);
 			},
 
 			// Page with filtered products
@@ -254,6 +280,30 @@ $(function () {
 				}
 			});
 		}
+
+		// Show the page.
+		page.addClass('visible');
+
+	}
+	
+	// Opens up a order preview for one of the products.
+	// Its parameters are an index from the hash and the products object.
+		function renderProductOrderPage(index, data){
+
+		var page = $('.order-product'),
+			container = $('.order-preview-large');
+
+		// Find the wanted product by iterating the data object and searching for the chosen index.
+		/*if(data.length){
+			data.forEach(function (item) {
+				if(item.id == index){
+					// Populate '.preview-large' with the chosen product's data.
+					container.find('h3').text(item.name);
+					container.find('img').attr('src', item.image.large);
+					container.find('p').text(item.description);
+				}
+			});
+		}*/
 
 		// Show the page.
 		page.addClass('visible');

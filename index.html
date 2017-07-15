@@ -98,16 +98,46 @@
 			</div>
 
 		</div>
+		
+		<div class="order-product page">
+
+			<div class="order-overlay"></div>
+
+			<div class="order-preview-large">
+				<h3>Single order product view</h3>
+				<!--<img src=""/>
+				<p></p>-->
+				<form id="form_id" method="post" name="myform">
+		  			<label>Your full name :</label></br>
+		  			<input type="text" name="username" id="username"/></br>
+ 
+					<label>Your telephone number :</label></br>
+		  			<input type="text" name="telephone" id="telephone"/></br> 
+ 
+					<label>Your address :</label></br>
+		  			<input type="text" name="address" id="address"/></br>
+		  			
+		  			<input type="button" value="Order It!" id="submit" onclick="rotate()"/>
+					</form>
+					<script type="application/javascript">
+			document.getElementById("submit").onclick = function () {
+				$("#container").flip();
+			};
+					</script>
+				<span class="order-close">×</span>
+			</div>
+
+		</div>
 
 		<div class="error page">
 			<h3>Sorry, something went wrong :(</h3>
 		</div>
-
+		
 	</div>
 
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/handlebars.js"></script>
 	<script src="assets/js/script.js"></script>
 
 
