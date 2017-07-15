@@ -224,7 +224,16 @@ $(function () {
 		// Each products has a data-index attribute.
 		// On click change the url hash to open up a preview for this product only.
 		// Remember: every hashchange triggers the render function.
-		list.find('button').on('click', function (e) {
+		list.find('button#add_button').on('click', function (e) {
+			var price;
+			var productIndex = $(this).data('index');
+			for(var x in data) { if(data[x].id == productIndex ) price = parseFloat(data[x].price); }
+			var select_amount = document.getElementById("select_"+productIndex);
+			var amount = parseInt(select_amount.options[select_amount.selectedIndex].text);
+			price *= amount;
+			setCookieOrder(productIndex,amount);
+		})
+		list.find('button#det_button').on('click', function (e) {
 			e.preventDefault();
 
 			var productIndex = $(this).data('index');
@@ -445,4 +454,16 @@ function getCookie(c_name) {
         }
     }
     return "";
+}
+function setCookieOrder(id,amount) {
+	var json_str = getCookie('arr_order');
+	var obj = {
+		'order1' : {
+			'id_product' : id,
+			'amount' : amount		
+		}
+	};
+	var new_arr = json_str + obj;
+	console.log(new_arr);
+	createCookie('arr_order', new_arr);
 }

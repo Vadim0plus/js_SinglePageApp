@@ -75,7 +75,7 @@
 								<li><span>Camera: </span>{{specs.camera}} Mpx</li>
 							</ul>
 							<B>Amount:</B>
-							<SELECT NAME="amount">
+							<SELECT id="select_{{id}}" NAME="amount">
 							<OPTION SELECTED> 1
 							<OPTION> 2
 							<OPTION> 3
@@ -86,8 +86,8 @@
 							</SELECT>
 							<p class="product-price">{{price}}$</p></br>
 							<div class="highlight"></div>
-							<button data-index="{{id}}">Add to Basket</button>
-							<button data-index="{{id}}">Detailed</button>
+							<button id="add_button" data-index="{{id}}">Add to Basket</button>
+							<button id="det_button" data-index="{{id}}">Detailed</button>
 							
 						</li>
 					{{/each}}
